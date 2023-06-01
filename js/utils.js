@@ -25,7 +25,7 @@ export function create(html) {
  */
 
 /**
- * Function that returns the amount of producs to add
+ * Function that returns the amount of products to add
  * TODO: Write a function that returns a template for amount of products.
  */
 export function addAmount() {
