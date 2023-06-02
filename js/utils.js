@@ -28,19 +28,25 @@ console.log(image);
 
 /**
  * Function that returns the sizes
- * TODO: Write a function that returns the sizes as a select box
+ * @param size {array}
  */
+
+export function addSize(size) {
+
+    console.log(size);
+    return 'l, m'
+}
 
 /**
  * Function that returns the amount of available products to add
  * @param stock {Number}
  */
 export function addAmount(stock) {
-    let amount = null;
+    let amount = 0;
 
     // Return the options template based on available products
     function option() {
-        let optTemplate = null;
+        let optTemplate = '';
 
         for (let i = 0; i < stock; i++) {
             optTemplate += `<option>${i}</option>`;
@@ -50,7 +56,7 @@ export function addAmount(stock) {
 
     // condition to check if product is available and return
     if (stock < 1) {
-        amount = `sold out`;
+        amount = `<span class="sold">sold out</span>`;
     } else {
         amount = `<select>
         ${option()}
