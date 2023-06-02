@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { el, group, create, addAmount,addImage } from './utils.js';
+import { el, group, create, addAmount, addImage, addSize } from './utils.js';
 
 console.log(data);
 
@@ -28,12 +28,12 @@ function app() {
             <h3 class="name">${item.name}</h3>
             <p class="description">${item.description}</p>
             <p class="price">${item.price} €<p>
-            ${item.sizes}<br>
+            ${addSize(item.sizes, item.stock)}
             ${addAmount(item.stock)} <button ${
                 item.stock < 1 ? 'disabled' : ''
             } id="${item.id}">add</button>
             </div>
-`;
+            `;
         });
 
         productsWrap.innerHTML = html;

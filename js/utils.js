@@ -20,21 +20,29 @@ export function create(html) {
  */
 
 export function addImage(image) {
-    const imagePath = `/img/products/article.jpg/${image}`; 
-console.log(image);
+    const imagePath = `/img/products/article.jpg/${image}`;
+    //console.log(image);
     return imagePath;
-  }
-  
+}
 
 /**
  * Function that returns the sizes
  * @param size {array}
  */
 
-export function addSize(size) {
+export function addSize(size, stock) {
+    let sizesTemplate = '';
 
-    console.log(size);
-    return 'l, m'
+    size.forEach((val) => {
+        sizesTemplate += `<option value="${val}">${val}</option>`;
+    });
+
+    if (stock < 1) {
+        return ''
+     } else {
+        return `<select>${sizesTemplate}</select>`;
+     }
+
 }
 
 /**
