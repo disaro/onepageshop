@@ -25,11 +25,13 @@ function app() {
         data.forEach((item) => {
             html += `<div>
             ${addImage(item.image)}
-            ${item.name}<br>
-            ${item.description}<br>
-            ${item.price} €<br>
+            <h3 class="name">${item.name}</h3>
+            <p class="description">${item.description}</p>
+            <p class="price">${item.price} €<p>
             ${item.sizes}<br>
-            ${addAmount(item.stock)} <button ${item.stock < 1 ? 'disabled' : ''} id="${item.id}">add</button>
+            ${addAmount(item.stock)} <button ${
+                item.stock < 1 ? 'disabled' : ''
+            } id="${item.id}">add</button>
             </div>
 `;
         });
