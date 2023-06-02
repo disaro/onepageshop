@@ -6,7 +6,7 @@ export const data = {
             price: 10.99,
             description:
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type",
-            image: './img/products/dummymg.jpg',
+            image: 'article1',
             sizes: ['S', 'M', 'L'],
             stock: 23,
         },
@@ -16,7 +16,7 @@ export const data = {
             price: 21,
             description:
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type",
-            image: './img/product2',
+            image: 'article2',
             sizes: ['M', 'L', 'XL'],
             stock: 0,
         },
@@ -26,7 +26,7 @@ export const data = {
             price: 10.99,
             description:
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type",
-            image: './img/product3',
+            image: 'article3',
             sizes: ['S', 'M', 'XL'],
             stock: 97,
         },
@@ -36,7 +36,7 @@ export const data = {
             price: 9,
             description:
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type",
-            image: './img/product4',
+            image: 'article4',
             sizes: ['L', 'XL'],
             stock: 56,
         },
