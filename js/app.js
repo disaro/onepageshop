@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { el, group, create, addAmount } from './utils.js';
+import { el, group, create, addAmount,addImage } from './utils.js';
 
 console.log(data);
 
@@ -24,6 +24,7 @@ function app() {
 
         data.forEach((item) => {
             html += `<div>
+            ${addImage(item.image)}
             ${item.name}<br>
             ${item.description}<br>
             ${item.price} €<br>

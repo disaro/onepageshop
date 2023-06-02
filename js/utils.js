@@ -19,6 +19,13 @@ export function create(html) {
  * TODO: Write a function that returns a complete image path
  */
 
+export function addImage(image) {
+    const imagePath = `/img/products/article.jpg/${image}`; 
+console.log(image);
+    return imagePath;
+  }
+  
+
 /**
  * Function that returns the sizes
  * TODO: Write a function that returns the sizes as a select box
