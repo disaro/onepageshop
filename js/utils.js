@@ -25,16 +25,31 @@ export function create(html) {
  */
 
 /**
- * Function that returns the amount of products to add
- * TODO: Write a function that returns a template for amount of products.
+ * Function that returns the amount of available products to add
+ * @param stock {Number}
  */
-export function addAmount() {
-    // TODO: Check how many products are available and add that many options
-    const amount = `<select>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    </select>`;
+export function addAmount(stock) {
+    let amount = null;
+
+    // Return the options template based on available products
+    function option() {
+        let optTemplate = null;
+
+        for (let i = 0; i < stock; i++) {
+            optTemplate += `<option>${i}</option>`;
+        }
+        return optTemplate;
+    }
+
+    // condition to check if product is available and return
+    if (stock < 1) {
+        amount = `sold out`;
+    } else {
+        amount = `<select>
+        ${option()}
+        </select>`;
+    }
+
     return amount;
 }
 

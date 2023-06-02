@@ -28,7 +28,7 @@ function app() {
             ${item.description}<br>
             ${item.price} €<br>
             ${item.sizes}<br>
-            ${addAmount()} <button id="${item.id}">add</button>
+            ${addAmount(item.stock)} <button ${item.stock < 1 ? 'disabled' : ''} id="${item.id}">add</button>
             </div>
 `;
         });
