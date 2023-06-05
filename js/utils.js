@@ -56,7 +56,7 @@ export function addAmount(stock) {
     function option() {
         let optTemplate = '';
 
-        for (let i = 0; i < stock; i++) {
+        for (let i = 1; i < stock; i++) {
             optTemplate += `<option value="${i}">${i}</option>`;
         }
         return optTemplate;
