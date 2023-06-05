@@ -48,12 +48,6 @@ function app() {
     }
 
     function handleAddToCart(e) {
-        // const itemId = e.target.id;
-        // const itemName = e.target.getAttribute('data-name');
-        // const itemPrice = e.target.getAttribute('data-price');
-        // const size = e.target.parentNode.querySelector('.size').value;
-        // const amount = e.target.parentNode.querySelector('.amount').value;
-        //const img = e.target.parentNode.querySelector('.amount').value;
 
         const itemObj = {
             itemId: e.target.id,
