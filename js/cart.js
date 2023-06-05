@@ -1,20 +1,18 @@
-import { data } from './data.js';
 import { el, addAmount } from './utils.js';
 
-
-// Create cart object
+// Define cartObj
 const cartObj = {
     productArr: [],
     totalItems: '',
     totalPrice: '',
 };
 
-const summary = el('#summary');
 /**
  * Function that creates the cart array
  * @param itemObj {obj}
  */
 
+// Define the die addToCart-Funktion
 export function addToCart(itemObj) {
     cartObj.productArr.push(itemObj);
 
@@ -37,27 +35,28 @@ function createCart(cart) {
     cart.forEach((value, index, array) => {
         // console.log(value, 'value');
         // console.log(index, 'index');
-        
+
         cartTempl += `
         <div class="summary-info">
         <div class="flex-row">
             <img src="${value.itemImg}">
             <h3>${value.itemName}</h3>
             <div class="summary-size">${value.itemSize}</div>
-            <div class="summary-amount">${addAmount(value.itemStock, value.itemAmount)}</div>
+            <div class="summary-amount">${addAmount(
+                value.itemStock,
+                value.itemAmount
+            )}</div>
             <div class="price">${value.itemPrice} €</div>
             <button class="remove-btn">X</button>
             
         </div><hr>`;
     });
 
-    summary.innerHTML = cartTempl;
+    el('#summary').innerHTML = cartTempl;
 
     // console.log(cart);
     console.log(cartObj);
 }
-
-
 
 /**
  * Function that checks if Product is already in cart and only increases the quantity
