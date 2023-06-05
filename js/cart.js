@@ -38,24 +38,33 @@ function createCart(cart) {
 
         cartTempl += `
         <div class="summary-info">
-        <div class="flex-row">
-            <img src="${value.itemImg}">
-            <h3>${value.itemName}</h3>
-            <div class="summary-size">${value.itemSize}</div>
-            <div class="summary-amount">${addAmount(
-                value.itemStock,
-                value.itemAmount
-            )}</div>
-            <div class="price">${value.itemPrice} €</div>
-            <button class="remove-btn">X</button>
-            
-        </div><hr>`;
+            <div class="flex-row">
+                <img src="${value.itemImg}">
+                <h3>${value.itemName}</h3>
+                <div class="summary-size">${value.itemSize}</div>
+                <div class="summary-amount">${addAmount(
+                    value.itemStock,
+                    value.itemAmount
+                )}</div>
+                <div class="price">${value.itemPrice} €</div>
+                <button data-id="${value.itemId}" class="remove-btn">X</button>
+                
+            </div>
+            <hr>
+        </div>`;
     });
 
     el('#summary').innerHTML = cartTempl;
 
+    // Event Listeners for remove button
+    const removeButtons = document.querySelectorAll('.remove-btn');
+
+    removeButtons.forEach((button) => {
+        button.addEventListener('click', handleDeleteItem);
+    });
+
     // console.log(cart);
-    console.log(cartObj);
+    console.log(cartObj.productArr);
 }
 
 /**
@@ -65,8 +74,25 @@ function createCart(cart) {
 
 /**
  * Function that deletes a cart object
- * TODO: Write a Function that deletes a cart object
  */
+
+function handleDeleteItem(e) {
+    // Empty cart html first
+    el('#summary').innerHTML = '';
+
+    // Filter out all items that are not equal with the ID
+    function deleteProductById(id) {
+        cartObj.productArr = cartObj.productArr.filter(
+            (product) => { 
+                console.log(product, 'product')
+                console.log(id, 'id')
+                return product.itemId !== id }
+        );
+    }
+    deleteProductById(e.target.getAttribute('data-id'));
+    // Recreate updated cart
+    createCart(cartObj.productArr);
+}
 
 /**
  * Function that updates the quantity of products next to the cart symbol
