@@ -20,7 +20,7 @@ export function create(html) {
  */
 
 export function addImage(image) {
-    const imagePath = ` <img src ="/img/products/${image}.jpg">`;
+    const imagePath = ` <img src ="./img/products/${image}.jpg">`;
     //console.log(image);
     return imagePath;
 }
