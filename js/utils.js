@@ -74,7 +74,4 @@ export function addAmount(stock) {
     return amount;
 }
 
-/**
- * Function that updates the cart
- * TODO: Write a function that updates the cart icon amount
- */
+
