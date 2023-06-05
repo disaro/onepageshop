@@ -15,12 +15,12 @@ export function create(html) {
 }
 
 /**
- * Function that returns the image path
- * TODO: Write a function that returns a complete image path
+ * Function that returns the image  with path
+ * @param size {string}
  */
 
 export function addImage(image) {
-    const imagePath = `/img/products/article.jpg/${image}`;
+    const imagePath = ` <img src ="/img/products/${image}.jpg">`;
     //console.log(image);
     return imagePath;
 }
