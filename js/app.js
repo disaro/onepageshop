@@ -53,6 +53,7 @@ function app() {
         // const itemPrice = e.target.getAttribute('data-price');
         // const size = e.target.parentNode.querySelector('.size').value;
         // const amount = e.target.parentNode.querySelector('.amount').value;
+        //const img = e.target.parentNode.querySelector('.amount').value;
 
         const itemObj = {
             itemId: e.target.id,
@@ -60,15 +61,16 @@ function app() {
             itemPrice: e.target.getAttribute('data-price'),
             itemSize: e.target.parentNode.querySelector('.size').value,
             itemAmount: e.target.parentNode.querySelector('.amount').value,
- 
+            itemImg: e.target.parentNode.parentNode.querySelector('img').getAttribute('src')
         };
         
+        // console.log(itemObj)
+        // console.log(size)
+        // console.log(amount)
         console.log(itemObj)
-        console.log(size)
-        console.log(amount)
 
         // Füge den Artikel dem Warenkorb hinzu
-        addToCart(itemId);
+        //addToCart(itemId);
     }
 
     init();
