@@ -1,6 +1,6 @@
 import { data } from './data.js';
 import { el, group, create, addAmount, addImage, addSize } from './utils.js';
-import { cartUpdater } from './cart.js';
+import { addToCart } from './cart.js';
 
 console.log(data);
 
@@ -58,13 +58,10 @@ function app() {
             itemImg: e.target.parentNode.parentNode.querySelector('img').getAttribute('src')
         };
         
-        // console.log(itemObj)
-        // console.log(size)
-        // console.log(amount)
-        console.log(itemObj)
+        //console.log(itemObj)
 
         // Füge den Artikel dem Warenkorb hinzu
-        //addToCart(itemId);
+        addToCart(itemObj);
     }
 
     init();
