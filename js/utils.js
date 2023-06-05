@@ -40,7 +40,7 @@ export function addSize(size, stock) {
     if (stock < 1) {
         return ''
      } else {
-        return `<select>${sizesTemplate}</select>`;
+        return `<select class="size">${sizesTemplate}</select>`;
      }
 
 }
@@ -57,7 +57,7 @@ export function addAmount(stock) {
         let optTemplate = '';
 
         for (let i = 0; i < stock; i++) {
-            optTemplate += `<option>${i}</option>`;
+            optTemplate += `<option value="${i}">${i}</option>`;
         }
         return optTemplate;
     }
@@ -66,7 +66,7 @@ export function addAmount(stock) {
     if (stock < 1) {
         amount = `<span class="sold">sold out</span>`;
     } else {
-        amount = `<select>
+        amount = `<select class="amount">
         ${option()}
         </select>`;
     }
