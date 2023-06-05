@@ -15,7 +15,17 @@ const summary = el('#summary');
 
 export function addToCart(itemObj) {
     cartObj.productArr.push(itemObj);
+    
+    // checks if Product is already in cart and only increases the amount based on selected quantity
+
+    // if(itemObj ... ) {
+
+    // } else { 
+
+    // }
+
     createCart(cartObj.productArr);
+    // add function that updates the quantity of products next to the cart symbol
     // add function that calculates total price
 }
 
@@ -53,5 +63,5 @@ function createCart(cart) {
 
 /**
  * Function that updates the quantity of products next to the cart symbol
- * TODO: Write a function that displays tht total Cart items next to the Cart Symbol on top of the Page
+ * TODO: Write a function that displays the total Cart items next to the Cart Symbol on top of the Page
  */
