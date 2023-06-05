@@ -1,0 +1,31 @@
+/* FONTS */
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,400");
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/60863adb71a85932a02519d4.60863adcaddc82069618e1bb.TAmEb8w.hcp.png");
+/* GLOBAL */
+* {
+   margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root { 
+  --alto: #d9d9d9;
+  --black: #000000;
+  --log-cabin: #232020;
+  --white: #ffffff;
+ 
+  --font-size-l: 40px;
+  --font-size-m: 25px;
+  --font-size-s: 18px;
+  --font-size-xl: 45px;
+  --font-size-xs: 15px;
+  --font-size-xxl: 60px;
+  --font-size-xxs: 10px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+}
+
