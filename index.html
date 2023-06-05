@@ -1,41 +1,72 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="icon" href="data:base64,iVBORw0KGgo=">
-	<link href="./css/style.css" rel="stylesheet">
+  <!--META -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+	<!--JS-->
 	<script src="js/app.js" defer type="module"></script>
+	<script src="js/data.js" defer type="module"></script>
+	<script src="js/utils.js" defer type="module"></script>
 	<title>T-Shirt Shop</title>
-</head>
-<body>
-	<header>
-		<div id="logo">Logo</div>
-		<div class="cart">
-			<div id="cart-icon">cart icon</div>
-			<div id="cart-amount">4</div>
-		</div>
-	</header>
-	<main>
-		<section>
-			<h1>Meine Webseite</h1>
-			<div id="products">
-				
+  </head> <!--END META-->
+
+  <!--BODY-->
+  <body>
+	    <!--HEADER-->
+        <header class="header">
+		<!--LOGO WRAPPER-->
+          <div class="logo-wrapper">
+            <img class="logo" src="img/products/logo.svg" alt="logo" />
+            <h1 class="title">Cool T-shirts</h1>
+          </div>
+		  <!--CART-->
+          <div class="cart">
+            <div id="cart-amount">
+				<p> </p>
 			</div>
-			
-		</section>
+            <img id="cart-icon" src="img/products/cart-icon@2x.png" alt="icon-cart" />
+          </div>
+        </header> <!--END HEADER-->
 
+		<!--SUMMARY-->
 		<aside>
-			Shopping Cart Summary
-			<div id="summary"></div>
-		</aside>
+			<div id="summary">
+				<!--SHOPPING CART INFO-->
+				<div class="shopping-cart">Shopping Cart</div>
+				<div class="summary-info">
+					<div class="flex-row">
+						<div class="summary-size"></div>
+						<div class="summary-amount"></div>
+						<div class="summary-item"></div>
+						<button class="remove-btn">X</button>
+					</div>
+				</div>
+				<!--SUBTOTAL-->
+				<div class="subtotal-wrapper">
+					<p class="subtotal-text">Subtotal (... items): ...</p>
+					<p class="vat">VAT: ...</p>
+				</div>
+				<!--BUTTONS-->
+				<div class="summary-btn">
+					<button class="buy-btn">BUY</button>
+					<button class="clear-btn">CLEAR</button>
+				</div>
+				</div>
+			</aside> <!--END SUMMARY-->
+		
+	  <!--SHOP-->
+      <section class="shop">Shop
+		<div id="products"></div>
+	  </section> <!--END SHOP-->
 
-	</main>
-	
-	<footer>
-		&copy; 2023 T-Shirt Shop. Alle Rechte vorbehalten.
-	</footer>
-</body>
+	  <!--FOOTER-->
+      <footer class="footer">
+        <p>T-SHIRT SHOP&nbsp;&nbsp;(C)&nbsp;&nbsp;|&nbsp;&nbsp;2023</p>
+      </footer> <!--END FOOTER-->
+  </body> <!--END BODY-->
 </html>
