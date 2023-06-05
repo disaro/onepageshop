@@ -38,40 +38,39 @@ export function addSize(size, stock) {
     });
 
     if (stock < 1) {
-        return ''
-     } else {
+        return '';
+    } else {
         return `<select class="size">${sizesTemplate}</select>`;
-     }
-
+    }
 }
 
 /**
  * Function that returns the amount of available products to add
  * @param stock {Number}
  */
-export function addAmount(stock) {
-    let amount = 0;
-
+export function addAmount(stock, selectedAmount) {
+    let amountTempl = 0;
+    console.log(stock, selectedAmount, 'selected amount');
     // Return the options template based on available products
     function option() {
         let optTemplate = '';
 
         for (let i = 1; i < stock; i++) {
-            optTemplate += `<option value="${i}">${i}</option>`;
+            optTemplate += `<option ${
+                i == selectedAmount ? 'selected="selected"' : ''
+            } value="${i}">${i}</option>`;
         }
         return optTemplate;
     }
 
     // condition to check if product is available and return
     if (stock < 1) {
-        amount = `<span class="sold">sold out</span>`;
+        amountTempl = `<span class="sold">sold out</span>`;
     } else {
-        amount = `<select class="amount">
+        amountTempl = `<select class="amount">
         ${option()}
         </select>`;
     }
 
-    return amount;
+    return amountTempl;
 }
-
-

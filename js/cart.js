@@ -1,4 +1,6 @@
-import { el } from './utils.js';
+import { data } from './data.js';
+import { el, addAmount } from './utils.js';
+
 
 // Create cart object
 const cartObj = {
@@ -15,12 +17,12 @@ const summary = el('#summary');
 
 export function addToCart(itemObj) {
     cartObj.productArr.push(itemObj);
-    
+
     // checks if Product is already in cart and only increases the amount based on selected quantity
 
     // if(itemObj ... ) {
 
-    // } else { 
+    // } else {
 
     // }
 
@@ -33,19 +35,25 @@ function createCart(cart) {
     let cartTempl = '';
 
     cart.forEach((value, index, array) => {
-        console.log(value, 'value');
-        console.log(index, 'index');
-
-        cartTempl += `<div class="cart-item">
-        <img src="${value.itemImg}">
-        <h3>${value.itemName}</h3>
-        <div class="amount">${value.itemAmount}</div>
-        <div class="price">${value.itemPrice} €</div></div>`;
+        // console.log(value, 'value');
+        // console.log(index, 'index');
+        
+        cartTempl += `
+        <div class="summary-info">
+        <div class="flex-row">
+            <img src="${value.itemImg}">
+            <h3>${value.itemName}</h3>
+            <div class="summary-size">${value.itemSize}</div>
+            <div class="summary-amount">${addAmount(value.itemStock, value.itemAmount)}</div>
+            <div class="price">${value.itemPrice} €</div>
+            <button class="remove-btn">X</button>
+            
+        </div><hr>`;
     });
 
     summary.innerHTML = cartTempl;
 
-    console.log(cart);
+    // console.log(cart);
     console.log(cartObj);
 }
 

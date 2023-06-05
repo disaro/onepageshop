@@ -32,7 +32,7 @@ function app() {
             ${addSize(item.sizes, item.stock)}
             ${addAmount(item.stock)} <button ${
                 item.stock < 1 ? 'disabled' : ''
-            } id="${item.id}" data-name="${item.name}" data-price="${item.price}">add</button>
+            } id="${item.id}" data-stock="${item.stock}" data-name="${item.name}" data-price="${item.price}">add</button>
             </div>
             `;
         });
@@ -41,7 +41,6 @@ function app() {
 
         // Event-Listener für jeden Button hinzufügen
         const buttons = productsWrap.querySelectorAll('button');
-        console.log(buttons);
         buttons.forEach((button) => {
             button.addEventListener('click', handleAddToCart);
         });
@@ -55,7 +54,8 @@ function app() {
             itemPrice: e.target.getAttribute('data-price'),
             itemSize: e.target.parentNode.querySelector('.size').value,
             itemAmount: e.target.parentNode.querySelector('.amount').value,
-            itemImg: e.target.parentNode.parentNode.querySelector('img').getAttribute('src')
+            itemImg: e.target.parentNode.parentNode.querySelector('img').getAttribute('src'),
+            itemStock: e.target.getAttribute('data-stock')
         };
         
         //console.log(itemObj)

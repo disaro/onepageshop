@@ -111,6 +111,10 @@ body {
     min-width: 390px;
     position: relative;
   }
+  .summary-info img { 
+    max-width: 70px;
+  }
+
   
   .flex-row {
     align-items: flex-end;
@@ -118,17 +122,6 @@ body {
     min-width: 382px;
     position: relative;
     top: -1px;
-  }
-  
-  .summary-size {
-    background-color: var(--white);
-    border: 2px solid;
-    border-color: var(--alto);
-    border-radius: 8px;
-    height: 48px;
-    margin-bottom: 0.2px;
-    opacity: 0.8;
-    width: 152px;
   }
   
   .summary-amount {
@@ -266,6 +259,7 @@ body {
     text-align: center;
     white-space: nowrap;
     width: 40px;
+    margin-left: auto;
   }
   
   .shop {
