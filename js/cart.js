@@ -39,12 +39,19 @@ function createCart(cart) {
     console.log(cartObj);
 }
 
+
+
+/**
+ * Function that checks if Product is already in cart and only increases the quantity
+ * TODO: like description
+ */
+
 /**
  * Function that deletes a cart object
  * TODO: Write a Function that deletes a cart object
  */
 
 /**
- * Function that creates the cart array
+ * Function that updates the quantity of products next to the cart symbol
  * TODO: Write a function that displays tht total Cart items next to the Cart Symbol on top of the Page
  */
