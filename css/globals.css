@@ -4,11 +4,12 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:700,400");
 /* The following line is used to measure usage of this code. You can remove it if you want. */
 @import url("https://px.animaapp.com/60863adb71a85932a02519d4.60863adcaddc82069618e1bb.TAmEb8w.hcp.png");
+
 /* GLOBAL */
 * {
    margin: 0;
-    padding: 0;
-  box-sizing: border-box;
+   padding: 0;
+   box-sizing: border-box;
 }
 
 /* VARIABLES */
