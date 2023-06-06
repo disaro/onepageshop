@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+  <!--META -->
+  <head>
+    <meta charset = "utf-8" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<!--CSS-->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+    <link rel = "stylesheet" type = "text/css" href = "css/globals.css" />
+	<!--JS-->
+	<script src = "js/app.js" defer type = "module"></script>
+	<title>T-Shirt Shop</title>
+  </head> <!--END META-->
+
+  <!--BODY-->
+  <body>
+	<!--HEADER-->
+	<header class="header">
+		<!--logo wrapper-->
+		<div class = "logo-wrapper">
+			<img class = "logo" src="img/products/logo.svg" alt = "logo"/>
+			<h1 class = "title">Cool T-shirts</h1>
+		</div>
+		<!--cart-->
+		<div class = "cart">
+			<div id = "cart-amount">
+				<p id = "cart-amount-text"></p>
+			</div>
+			<img id = "cart-icon" src = "img/products/cart-icon@2x.png" alt = "icon-cart" />
+		</div>
+	</header> <!--END HEADER-->
+	
+	<!--MAIN-->
+	<main>
+		<!--SHOP-->
+		<section><h2>Shop</h2>
+			<div id = "products"> </div>
+		</section> <!--END SHOP-->
+		
+		<!--SUMMARY-->
+		<aside>
+			<h3>Shopping&nbsp;Cart:</h3>
+			<div id = "summary">
+				<!--subtotal-->
+				<div class = "subtotal-wrapper">
+					<p id = "vat">VAT:&nbsp;19%</p>
+					<p id = "subtotal-text">Subtotal:</p>
+				</div>
+				<!--buttons-->
+				<div class="summary-btn">
+					<button class = "buy-btn">BUY</button>
+					<button class = "remove-btn">X</button>
+					<button class = "clear-btn">CLEAR</button>
+				</div>
+			</div>
+		</aside> <!--END SUMMARY-->
+	</main>	<!--END MAIN-->
+	
+	<!--FOOTER-->
+	<footer>
+		<p>T-SHIRT&nbsp;SHOP&nbsp;&nbsp;(C)&nbsp;&nbsp;|&nbsp;&nbsp;2023</p>
+	</footer> <!--END FOOTER-->
+  </body> <!--END BODY-->
+</html>
