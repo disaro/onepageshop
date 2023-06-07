@@ -1,31 +1,30 @@
 /* FONTS */
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css?family=Inter:700,400");
-
 
 /* GLOBAL */
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* VARIABLES */
-:root { 
-  --alto: #d9d9d9;
-  --black: #000000;
-  --log-cabin: #232020;
-  --white: #ffffff;
- 
-  --font-size-l: 40px;
-  --font-size-m: 25px;
-  --font-size-s: 18px;
-  --font-size-xl: 45px;
-  --font-size-xs: 15px;
-  --font-size-xxl: 60px;
-  --font-size-xxs: 10px;
- 
-  --font-family-inter: "Inter", Helvetica;
+:root {
+    --alto: #d9d9d9;
+    --black: #000000;
+    --log-cabin: #232020;
+    --white: #ffffff;
+
+    --font-size-l: 40px;
+    --font-size-m: 25px;
+    --font-size-s: 18px;
+    --font-size-xl: 45px;
+    --font-size-xs: 15px;
+    --font-size-xxl: 60px;
+    --font-size-xxs: 10px;
+
+    --font-family-inter: 'Inter', Helvetica;
 }
+
+
 
