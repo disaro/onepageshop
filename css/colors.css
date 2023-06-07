@@ -1,0 +1,93 @@
+/* ********************* HEADER ********************* */
+.header {
+  background-color: #f79327;
+}
+
+/* TITLE */
+header .title {
+  color: var(--black) !important;
+}
+
+/* CART AMOUNT BOX */
+header #cart-amount {
+  background-color: #db005b;
+}
+
+/* ********************* MAIN ********************* */
+main {
+  background-color: #ffe569;
+}
+
+/* ********************* SHOP SECTION ********************* */
+/* SHOP TITLE */
+section h2 {
+  color: var(--log-cabin);
+  font-size: var(--font-size-xl);
+}
+
+/* SHOP PRODUCTS NAME */
+section #products > div > .name {
+  color: var(--log-cabin);
+  font-size: var(--font-size-s);
+}
+
+/* SHOP PRODUCTS PRICE */
+section #products > div > .price {
+  color: var(--log-cabin);
+  font-size: var(--font-size-s);
+}
+
+/* ********************* SHOPPING CART ********************* */
+aside {
+  background-color: #f79327b2;
+}
+
+/* SHOPPING CART TITLE */
+aside h3 {
+  color: var(--log-cabin);
+  font-size: var(--font-size-xs);
+}
+
+/* SHOPPING CART SUBTOTAL TEXTS */
+aside .subtotal-wrapper p {
+  color: var(--log-cabin);
+  font-size: var(--font-size-m);
+}
+
+/* SHOPPING CART VAT TEXT */
+aside #vat {
+  color: var(--log-cabin);
+  font-size: var(--font-size-m);
+}
+
+/* SHOPPING CART: BUY BUTTON */
+aside .buy-btn {
+  background-color: #09bd86fa;
+  color: var(--white);
+  font-size: var(--font-size-s);
+}
+
+/* SHOPPING CART: CLEAR BUTTON */
+aside .clear-btn {
+  background-color: #f443368c;
+  color: var(--white);
+  font-size: var(--font-size-xs);
+}
+
+/* SHOPPING CART: REMOVE BUTTON */
+aside .remove-btn {
+  background-color: #db005b;
+  color: var(--white);
+  font-size: var(--font-size-s);
+}
+
+/* ********************* FOOTER ********************* */
+footer {
+  background-color: #db005b;
+}
+
+/* FOOTER TEXT */
+footer p {
+  color: var(--white);
+  font-size: var(--font-size-xxs);
+}
