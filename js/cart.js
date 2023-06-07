@@ -32,15 +32,18 @@ export function addToCart(itemObj) {
         cartObj.productArr.push(itemObj);
       }
       createCart(cartObj.productArr);
-      updateAmount();
+      
+      //updates the number of items in the cart; calculate the total price
+      updateAmountPrice()
 }
 
 function createCart(cart) {
     let cartTempl = '';
+    let summaryTempl = '';
 
     cart.forEach((value) => {
 
-     
+
         cartTempl += `
         <div class="summary-info">
         <div class="flex-row">
@@ -49,16 +52,22 @@ function createCart(cart) {
           <div class="summary-size">${value.itemSize}</div>
           <div class="summary-amount">${addAmount(value.itemStock, value.itemAmount)}</div>
           <div class="price">${value.itemPrice} €</div>
-          <button data-id="${value.itemId}" data-size="${
-            value.itemSize
-          }" class="remove-btn">X</button>
+          <button data-id="${value.itemId}" data-size="${value.itemSize}" class="remove-btn">X</button> 
         </div>
         <hr>
       </div>
-   
-        
-        `;
+      `;
     });
+
+    summaryTempl  
+
+    /*
+    <p>VAT: 19%</p>
+    <p id='subtotal-text'></p>
+    <button id=" " size=" " class="clear-btn">CLEAR</button>
+    */
+    
+   // add clear-btn function ?
 
     el('#summary').innerHTML = cartTempl;
 
@@ -70,7 +79,7 @@ function createCart(cart) {
     });
 
     // console.log(cart);
-    console.log(cartObj.productArr);
+    // console.log(cartObj.productArr);
 }
 
 /**
@@ -99,22 +108,25 @@ function handleDeleteItem(e) {
     );
     // Recreate updated cart
     createCart(cartObj.productArr);
-    updateAmount();
+    updateAmountPrice();
 }
 
 /**
- * Function that updates the quantity of products next to the cart symbol
- * 
+ * Function that updates the quantity of products next to the cart symbol;
+ * Calculates and updates the total price
  */
-function updateAmount() {
-    let sum = 0;
+function updateAmountPrice() {
+    let sumItems = 0;
+    let sumAmount = 0;
     
     cartObj.productArr.forEach((val) => {
-            sum += parseInt(val.itemAmount);       
+            sumItems += parseInt(val.itemAmount);  
+            sumAmount += parseFloat(val.itemPrice) * parseInt(val.itemAmount);     
         });
-        //console.log(sum);  
-        cartObj.totalItems = sum;
-        el('#cart-amount-text').innerText = cartObj.totalItems 
-}
 
+        cartObj.totalItems = sumItems;
+        cartObj.totalPrice = `<b> Subtotal: ${sumAmount.toFixed(2)} </b>`;
+        el('#cart-amount-text').innerText = cartObj.totalItems 
+        el('#subtotal-text').innerHTML = cartObj.totalPrice;
+}
 
