@@ -99,6 +99,7 @@ function handleDeleteItem(e) {
     );
     // Recreate updated cart
     createCart(cartObj.productArr);
+    updateAmount();
 }
 
 /**
