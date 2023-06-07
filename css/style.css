@@ -65,6 +65,13 @@ header #cart-amount {
     width: 49px;
 }
 
+/* CART AMOUNT BOX: TOTAL ITEMS */
+header #cart-amount-text {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+}
+
 /* CART ICON */
 header #cart-icon {
     width: 47px;
@@ -253,7 +260,7 @@ aside .remove-btn {
 footer {
     display:flex;
     text-align: center;
-    bottom:
+    bottom: 0;
     width: 100%; 
     height: 3em;
     overflow: hidden;
