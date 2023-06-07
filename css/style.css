@@ -46,12 +46,21 @@ header #cart-amount {
     position: absolute;
     top: 0;
     width: 49px;
+    font-size: 25px;
+    display: flex;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 header #cart-icon {
     width: 47px;
     flex-wrap: wrap;
 }
+
+
+
 
 main {
     display: flex;
