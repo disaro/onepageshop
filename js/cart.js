@@ -26,6 +26,7 @@ export function addToCart(itemObj) {
 
     createCart(cartObj.productArr);
     // add function that updates the quantity of products next to the cart symbol
+    updateAmount()
     // add function that calculates total price
 }
 
@@ -96,5 +97,17 @@ function handleDeleteItem(e) {
 
 /**
  * Function that updates the quantity of products next to the cart symbol
- * TODO: Write a function that displays the total Cart items next to the Cart Symbol on top of the Page
+ * 
  */
+function updateAmount() {
+    let sum = 0;
+    
+    cartObj.productArr.forEach((val) => {
+            sum += parseInt(val.itemAmount);       
+        });
+        //console.log(sum);  
+        cartObj.totalItems = sum;
+        el('#cart-amount-text').innerText = cartObj.totalItems 
+}
+
+
