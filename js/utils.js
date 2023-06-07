@@ -50,12 +50,12 @@ export function addSize(size, stock) {
  */
 export function addAmount(stock, selectedAmount) {
     let amountTempl = 0;
-    console.log(stock, selectedAmount, 'selected amount');
+    //console.log(stock, selectedAmount, 'selected amount');
     // Return the options template based on available products
     function option() {
         let optTemplate = '';
 
-        for (let i = 1; i < stock; i++) {
+        for (let i = 1; i <= stock; i++) {
             optTemplate += `<option ${
                 i == selectedAmount ? 'selected="selected"' : ''
             } value="${i}">${i}</option>`;

@@ -14,45 +14,50 @@ const cartObj = {
 
 // Define the die addToCart-Funktion
 export function addToCart(itemObj) {
-    cartObj.productArr.push(itemObj);
-
-    // checks if Product is already in cart and only increases the amount based on selected quantity
-
-    // if(itemObj ... ) {
-
-    // } else {
-
-    // }
-
-    createCart(cartObj.productArr);
-    // add function that updates the quantity of products next to the cart symbol
-    updateAmount()
-    // add function that calculates total price
+    const existingProductIndex = cartObj.productArr.findIndex(
+        (product) => product.itemId === itemObj.itemId && product.itemSize === itemObj.itemSize
+      );
+    
+      if (existingProductIndex !== -1) {
+        const existingProduct = cartObj.productArr[existingProductIndex];
+        const newAmount = parseInt(existingProduct.itemAmount) + parseInt(itemObj.itemAmount);
+        const itemStock = parseInt(existingProduct.itemStock);
+      
+        if (newAmount <= itemStock) {
+          existingProduct.itemAmount = newAmount.toString();
+        } else {
+          existingProduct.itemAmount = itemStock.toString();
+        }
+      } else {
+        cartObj.productArr.push(itemObj);
+      }
+      createCart(cartObj.productArr);
+      updateAmount();
 }
 
 function createCart(cart) {
     let cartTempl = '';
 
-    cart.forEach((value, index, array) => {
-        // console.log(value, 'value');
-        // console.log(index, 'index');
+    cart.forEach((value) => {
 
+     
         cartTempl += `
         <div class="summary-info">
-            <div class="flex-row">
-                <img src="${value.itemImg}">
-                <h3>${value.itemName}</h3>
-                <div class="summary-size">${value.itemSize}</div>
-                <div class="summary-amount">${addAmount(
-                    value.itemStock,
-                    value.itemAmount
-                )}</div>
-                <div class="price">${value.itemPrice} €</div>
-                <button data-id="${value.itemId}" class="remove-btn">X</button>
-                
-            </div>
-            <hr>
-        </div>`;
+        <div class="flex-row">
+          <img src="${value.itemImg}">
+          <h3>${value.itemName}</h3>
+          <div class="summary-size">${value.itemSize}</div>
+          <div class="summary-amount">${addAmount(value.itemStock, value.itemAmount)}</div>
+          <div class="price">${value.itemPrice} €</div>
+          <button data-id="${value.itemId}" data-size="${
+            value.itemSize
+          }" class="remove-btn">X</button>
+        </div>
+        <hr>
+      </div>
+   
+        
+        `;
     });
 
     el('#summary').innerHTML = cartTempl;
@@ -82,15 +87,16 @@ function handleDeleteItem(e) {
     el('#summary').innerHTML = '';
 
     // Filter out all items that are not equal with the ID
-    function deleteProductById(id) {
-        cartObj.productArr = cartObj.productArr.filter(
-            (product) => { 
-                console.log(product, 'product')
-                console.log(id, 'id')
-                return product.itemId !== id }
-        );
+    function deleteProductById(id, size) {
+        cartObj.productArr = cartObj.productArr.filter((product) => {
+            // Filter products where neither ID nor size match.
+            return product.itemId !== id || product.itemSize !== size;
+        });
     }
-    deleteProductById(e.target.getAttribute('data-id'));
+    deleteProductById(
+        e.target.getAttribute('data-id'),
+        e.target.getAttribute('data-size')
+    );
     // Recreate updated cart
     createCart(cartObj.productArr);
 }
