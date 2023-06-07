@@ -7,7 +7,6 @@
 header .title {
   color: var(--black) !important;
   font-size: var(--font-size-xxl);
-  margin-left: -3%;
 }
 
 /* CART AMOUNT BOX */
@@ -50,14 +49,15 @@ aside {
   background-color: #f79327b2;
 }
 
-/* SHOPPING CART TITLE */
+/* Shopping cart title */
 aside h3 {
   color: var(--log-cabin);
   font-size: var(--font-size-m);
   text-align: center;
-  margin-top: 0.5em;
+  margin-top: 6%;
 }
 
+/* Product summary */
 aside .flex-row h3 {
   font-size: var(--font-size-s);
 }
@@ -70,13 +70,17 @@ aside .price {
   margin: 0 0 0 6%;
 }
 
-/* SHOPPING CART SUBTOTAL TEXTS */
-aside .subtotal-wrapper p {
+/* Total price suumary */
+aside .subtotal-wrapper {
   color: var(--log-cabin);
   font-size: var(--font-size-m);
 }
 
-/* SHOPPING CART: BUTTONS */
+aside #vat {
+  font-size: var(--font-size-s);
+}
+
+/* Buttons */
 aside .buy-btn {
   background-color: #09bd86fa;
   color: var(--white);

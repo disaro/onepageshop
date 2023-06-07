@@ -32,7 +32,7 @@ function app() {
             ${addSize(item.sizes, item.stock)}
             ${addAmount(item.stock)} <button ${
                 item.stock < 1 ? 'disabled' : ''
-            } id="${item.id}" data-stock="${item.stock}" data-name="${item.name}" data-price="${item.price}">add</button>
+            } id="${item.id}" data-stock="${item.stock}" data-name="${item.name}" data-price="${item.price}">ADD</button>
             </div>
             `;
         });

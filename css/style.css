@@ -1,8 +1,8 @@
 /* Shop-Layout */
 body {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: max-content;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -18,11 +18,16 @@ header {
     position: relative;
 }
 
+.header .title {
+    margin-left: 3%;
+}
+
 header .logo {
     height: 85px;
     left: 30px;
     width: 88px;
     position: absolute;
+    margin-left: 4%;
 }
 
 header .logo-wrapper .title {
@@ -34,7 +39,7 @@ header .logo-wrapper .title {
 }
 
 header .cart {
-    margin: 1.5% 2.5% 0 0;
+    margin: 1.5% 3.5% 0 0;
     min-width: 109px;
     position: relative;
 }
@@ -58,9 +63,6 @@ header #cart-icon {
     width: 47px;
     flex-wrap: wrap;
 }
-
-
-
 
 main {
     display: flex;
@@ -94,8 +96,6 @@ aside {
     min-height: 100vh;
     overflow: auto;
     position: sticky;
-    top: 0;
-    padding: 20px;
 }
 
 footer {
@@ -164,7 +164,12 @@ button {
 .summary-info {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 1% 0 0 7%;
+}
+
+.subtotal-wrapper {
+    margin-top: 8%;
+    margin-left: 7%;
 }
 
 .flex-row {
@@ -202,8 +207,8 @@ button {
     border-radius: 4px;
     padding: 6px 10px;
     cursor: pointer;
+    margin-left: 79%;
     position: absolute;
-    margin-left: 82%
 }
 
 .remove-btn:hover {

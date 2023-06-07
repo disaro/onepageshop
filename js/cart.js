@@ -33,7 +33,7 @@ export function addToCart(itemObj) {
       }
       createCart(cartObj.productArr);
       
-      //updates the number of items in the cart; calculate the total price
+      // Updates the number of items in the cart; calculate the total price
       updateAmountPrice()
 }
 
@@ -43,7 +43,7 @@ function createCart(cart) {
 
     cart.forEach((value) => {
 
-
+        // Template for products in the shopping cart
         cartTempl += `
         <div class="summary-info">
         <div class="flex-row">
@@ -58,22 +58,22 @@ function createCart(cart) {
       </div>
       `;
     });
-
-    summaryTempl  
-
-    /*
-    <p>VAT: 19%</p>
-    <p id='subtotal-text'></p>
-    <button id=" " size=" " class="clear-btn">CLEAR</button>
-    */
     
-   // add clear-btn function ?
+    // TODO: add clear-btn function (?)
+    // TODO: add buy-btn function --> JSON Object console (?)
 
+    // Template for total price summary
+    summaryTempl = `
+        <p id='vat'>VAT: 19%</p>
+        <p id='subtotal-text'></p>
+        <button id=" " size=" " class="clear-btn">CLEAR</button>
+        `
+    // Link html
     el('#summary').innerHTML = cartTempl;
+    el('.subtotal-wrapper').innerHTML = summaryTempl;
 
     // Event Listeners for remove button
     const removeButtons = document.querySelectorAll('.remove-btn');
-
     removeButtons.forEach((button) => {
         button.addEventListener('click', handleDeleteItem);
     });
@@ -108,6 +108,7 @@ function handleDeleteItem(e) {
     );
     // Recreate updated cart
     createCart(cartObj.productArr);
+    // Updates the number of items in the cart; calculate the total price
     updateAmountPrice();
 }
 
@@ -116,17 +117,22 @@ function handleDeleteItem(e) {
  * Calculates and updates the total price
  */
 function updateAmountPrice() {
+    // Total items 
     let sumItems = 0;
+    // Total amount
     let sumAmount = 0;
+    const vat = 1.19;
     
     cartObj.productArr.forEach((val) => {
-            sumItems += parseInt(val.itemAmount);  
-            sumAmount += parseFloat(val.itemPrice) * parseInt(val.itemAmount);     
+            sumItems += parseInt(val.itemAmount);
+
+            // Calculate total price with vat
+            sumAmount += (parseFloat(val.itemPrice) * vat) * parseInt(val.itemAmount);     
         });
 
+        // Link to the object elements + html
         cartObj.totalItems = sumItems;
         cartObj.totalPrice = `<b> Subtotal: ${sumAmount.toFixed(2)} </b>`;
         el('#cart-amount-text').innerText = cartObj.totalItems 
         el('#subtotal-text').innerHTML = cartObj.totalPrice;
 }
-
