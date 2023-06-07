@@ -111,6 +111,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 #products > div {
@@ -140,7 +141,7 @@ footer {
     border: 2px solid #f79327;;
 }
 button {
-    cursor: pointer ;
+    cursor: pointer;
 }
 #products button {
     margin-top: 10px;
@@ -157,13 +158,14 @@ button {
 }
 
 #summary {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
 .summary-info {
-    display: flex;
-    align-items: center;
+    flex: 1 1 calc(50% - 10px);
     margin: 1% 0 0 7%;
 }
 
@@ -175,31 +177,53 @@ button {
 .flex-row {
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 .summary-info img {
     width: 50px;
+    height: 50px;
     margin-right: 10px;
 }
 
-.summary-size {
-    background-color: #f1f1f1;
-    border-radius: 4px;
-    padding: 8px 12px;
-    margin-right: 10px;
-    margin-left: 10px;
+.summary-info h3 {
+    margin: 0;
 }
 
-.summary-amount select {
+.summary-info .summary-size {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.summary-info .summary-amount select {
     width: 60px;
     padding: 6px 10px;
+    font-size: 14px;
     border-radius: 4px;
+}
+
+.summary-info .price {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.summary-info .remove-btn {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    background-color: #f44336;
+}
+
+.summary-info .remove-btn:hover {
+    background-color: #d32f2f;
 }
 
 .price {
     margin-right: 10px;
     font-weight: bold;
-
 }
 
 .remove-btn {
