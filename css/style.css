@@ -239,6 +239,14 @@ button {
     background-color: #FF0303;
 }
 
+.buy-btn {
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
 .clear-btn {
     border: none;
     border-radius: 4px;

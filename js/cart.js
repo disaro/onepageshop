@@ -1,4 +1,4 @@
-import { el, addAmount } from './utils.js';
+import { el, group, addAmount } from './utils.js';
 
 // Define cartObj
 const cartObj = {
@@ -35,7 +35,7 @@ export function addToCart(itemObj) {
         cartObj.productArr.push(itemObj);
       }
       createCart(cartObj.productArr);
-      updateAmount();
+      //updateAmount();
       // Updates the number of items in the cart; calculate the total price
       updateAmountPrice()
 }
@@ -73,15 +73,18 @@ function createCart(cart) {
     summaryTempl = `
         <p id='vat'>VAT: 19%</p>
         <p id='subtotal-text'></p>
-        <button id=" " size=" " class="clear-btn">CLEAR</button>
+        <button class="buy-btn">BUY</button>
+        <button class="clear-btn">CLEAR</button>
         `
     // Link html
     el('#summary').innerHTML = cartTempl;
     el('.subtotal-wrapper').innerHTML = summaryTempl;
 
     // Event Listeners for remove button
-    const removeButtons = document.querySelectorAll('.remove-btn');
-    const summaryAmountSelects = document.querySelectorAll('.summary-amount');
+    const removeButtons = group('.remove-btn');
+    const summaryAmountSelects = group('.summary-amount');
+    // Event Listener for clear button
+    el('.clear-btn').addEventListener('click', clearCart);
 
     removeButtons.forEach((button) => {
         button.addEventListener('click', handleDeleteItem);
@@ -196,3 +199,16 @@ function updateAmountPrice() {
         el('#subtotal-text').innerHTML = cartObj.totalPrice;
 }
 
+/**
+ * Function that clear the cart.
+ */
+function clearCart() {
+
+    //empty the elements 
+    cartObj.productArr = [];
+    cartObj.totalItems = '';
+    cartObj.totalPrice= 0;
+  
+    updateAmountPrice(); 
+    createCart(cartObj.productArr);
+  }
