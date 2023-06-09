@@ -7,6 +7,10 @@ const cartObj = {
     totalPrice: '',
 };
 
+let sum = 0;
+let sumAmount = 0;
+let vat = 1.19;
+
 /**
  * Function that creates the cart array
  * @param itemObj {obj}
@@ -33,11 +37,11 @@ export function addToCart(itemObj) {
         }
     } else {
         cartObj.productArr.push(itemObj);
-      }
-      createCart(cartObj.productArr);
-      //updateAmount();
-      // Updates the number of items in the cart; calculate the total price
-      updateAmountPrice()
+    }
+    createCart(cartObj.productArr);
+
+    // Updates the number of items in the cart; calculate the total price
+    updateAmountPrice();
 }
 
 function createCart(cart) {
@@ -45,8 +49,7 @@ function createCart(cart) {
     let summaryTempl = '';
 
     cart.forEach((value) => {
-
-        // Template for products in the shopping cart     
+        // Template for products in the shopping cart
         cartTempl += `
         <div class="summary-info">
         <div class="flex-row">
@@ -55,7 +58,10 @@ function createCart(cart) {
           <div class="summary-size">${value.itemSize}</div>
           <div class="summary-amount" data-previous-value="${
               value.itemAmount
-          }">${addAmount(value.itemStock, value.itemAmount)}</div>
+          }" data-id="${value.itemId}">${addAmount(
+            value.itemStock,
+            value.itemAmount
+        )}</div>
           <div class="price">${value.itemPrice} €</div>
           <button data-id="${value.itemId}" data-size="${
             value.itemSize
@@ -65,7 +71,7 @@ function createCart(cart) {
       </div>
       `;
     });
-    
+
     // TODO: add clear-btn function (?)
     // TODO: add buy-btn function --> JSON Object console (?)
 
@@ -75,7 +81,7 @@ function createCart(cart) {
         <p id='subtotal-text'></p>
         <button class="buy-btn">BUY</button>
         <button class="clear-btn">CLEAR</button>
-        `
+        `;
     // Link html
     el('#summary').innerHTML = cartTempl;
     el('.subtotal-wrapper').innerHTML = summaryTempl;
@@ -110,6 +116,8 @@ function selectAmount(e) {
         parseInt(select.parentNode.getAttribute('data-previous-value')) ||
         parseInt(select.dataset.previousValue);
 
+    const previousId = select.parentNode.getAttribute('data-id');
+
     console.log(cartObj.totalItems, 'cartObj.productArr.totalItems');
 
     if (selectedValue > previousValue) {
@@ -117,8 +125,18 @@ function selectAmount(e) {
         const difference = selectedValue - previousValue;
         console.log(`Wert um ${difference} erhöht`);
         console.dir(cartObj);
-        cartObj.totalItems += difference;
-        updateAmount(true);
+        //cartObj.productArr[previousId] += difference;
+
+        cartObj.productArr.forEach((value) => {
+            if (value.itemId == previousId) {
+                value.itemAmount = (
+                    parseInt(value.itemAmount) + difference
+                ).toString();
+            }
+        });
+
+  
+        updateAmountPrice();
 
         // Führe die entsprechende Aktion aus
     } else if (selectedValue < previousValue) {
@@ -126,7 +144,17 @@ function selectAmount(e) {
         const difference = previousValue - selectedValue;
         console.log(`Wert um ${difference} verringert`);
         cartObj.totalItems -= difference;
-        updateAmount(true);
+
+        cartObj.productArr.forEach((value) => {
+            if (value.itemId == previousId) {
+                value.itemAmount = (
+                    parseInt(value.itemAmount) - difference
+                ).toString();
+            }
+        });
+
+
+        updateAmountPrice();
         console.log(cartObj);
         // Führe die entsprechende Aktion aus
     } else {
@@ -166,49 +194,47 @@ function handleDeleteItem(e) {
     // Recreate updated cart
     createCart(cartObj.productArr);
     // Updates the number of items in the cart; calculate the total price
-    updateAmount();
+
     updateAmountPrice();
 }
 
-/**
- * Function that updates the quantity of products next to the cart symbol;
- *Calculates and updates the total price
- */
+
 /**
  * Function that updates the quantity of products next to the cart symbol
- *
+ * Calculates and updates the total price
  */
+
 function updateAmountPrice() {
-    // Total items 
-    let sumItems = 0;
     // Total amount
-    let sumAmount = 0;
-    const vat = 1.19;
-    
+    sum = 0;
+    sumAmount = 0;
+    vat = 1.19;
+
     cartObj.productArr.forEach((val) => {
-            sumItems += parseInt(val.itemAmount);
+        sum += parseInt(val.itemAmount);
+        // Calculate total price with vat
+        sumAmount += parseFloat(val.itemPrice) * vat * parseInt(val.itemAmount);
+    });
 
-            // Calculate total price with vat
-            sumAmount += (parseFloat(val.itemPrice) * vat) * parseInt(val.itemAmount);     
-        });
+    // Link to the object elements + html
+    cartObj.totalPrice = sumAmount.toFixed(2);
 
-        // Link to the object elements + html
-        cartObj.totalItems = sumItems;
-        cartObj.totalPrice = `<b> Subtotal: ${sumAmount.toFixed(2)} </b>`;
-        el('#cart-amount-text').innerText = cartObj.totalItems 
-        el('#subtotal-text').innerHTML = cartObj.totalPrice;
+    let templ = `<b> Subtotal: ${cartObj.totalPrice} </b>`;
+
+    cartObj.totalItems = sum;
+    el('#cart-amount-text').innerText = cartObj.totalItems;
+    el('#subtotal-text').innerHTML = templ;
 }
 
 /**
  * Function that clear the cart.
  */
 function clearCart() {
-
-    //empty the elements 
+    //empty the elements
     cartObj.productArr = [];
     cartObj.totalItems = '';
-    cartObj.totalPrice= 0;
-  
-    updateAmountPrice(); 
+    cartObj.totalPrice = 0;
+
+    updateAmountPrice();
     createCart(cartObj.productArr);
-  }
+}
