@@ -81,6 +81,7 @@ function createCart(cart) {
         <p id='subtotal-text'></p>
         <button class="buy-btn">BUY</button>
         <button class="clear-btn">CLEAR</button>
+        <p id='buy_text'></p> 
         `;
     // Link html
     el('#summary').innerHTML = cartTempl;
@@ -91,6 +92,15 @@ function createCart(cart) {
     const summaryAmountSelects = group('.summary-amount');
     // Event Listener for clear button
     el('.clear-btn').addEventListener('click', clearCart);
+
+    /**
+     * Function that passes a JSON object to the server 
+     * by clicking 'BUY'
+     */
+    el('.buy-btn').addEventListener('click', function(){
+        console.log(`Pass data to server: ${JSON.stringify(cartObj, null, 4)}`)
+        el('#buy_text').innerText = 'Thank you fou your purchase! (see console)'
+    });
 
     removeButtons.forEach((button) => {
         button.addEventListener('click', handleDeleteItem);
@@ -106,7 +116,7 @@ function createCart(cart) {
 
 /**
  * Function that checks if Product is already in cart and only increases the quantity
- * TODO: like description
+ * 
  */
 
 function selectAmount(e) {
@@ -237,4 +247,6 @@ function clearCart() {
 
     updateAmountPrice();
     createCart(cartObj.productArr);
+
+    el('.subtotal-wrapper').innerHTML = ' ';
 }
