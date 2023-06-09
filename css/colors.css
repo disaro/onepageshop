@@ -17,7 +17,7 @@ header #cart-amount {
 
 /* ********************* MAIN ********************* */
 main {
-  background-color: #ffe569;
+  background-color: rgb(255, 229, 105);
 }
 
 /* ********************* SHOP SECTION ********************* */
@@ -66,8 +66,21 @@ aside .flex-row img {
   border-radius: 4%;
 }
 
+.summary-size {
+  margin-left: 2%;
+  background-color: rgb(255, 229, 105);
+  border-radius: 4%;
+  padding: 2%;
+  text-align: center;
+}
+
 aside .price {
-  margin: 0 0 0 6%;
+  margin: 0 0 0 5%;
+}
+
+aside hr {
+  background-color: rgb(219, 0, 91);
+  border: 1px solid rgb(219, 0, 91);
 }
 
 /* Total price suumary */
@@ -82,19 +95,19 @@ aside #vat {
 
 /* Buttons */
 aside .buy-btn {
-  background-color: #09bd86fa;
+  background-color: rgba(10, 189, 135, 0.98);
   color: var(--white);
   font-size: var(--font-size-s);
 }
 
 aside .clear-btn {
-  background-color: #db005b;
+  background-color: rgb(219, 0, 91);
   color: var(--white);
   font-size: var(--font-size-xs);
 }
 
 aside .remove-btn {
-  background-color: #db005b;
+  background-color: rgb(219, 0, 91);
   color: var(--white);
   font-size: var(--font-size-s);
 }
