@@ -10,10 +10,6 @@ export function group(css) {
     return document.querySelectorAll(css);
 }
 
-export function create(html) {
-    return document.createElement(html);
-}
-
 /**
  * Function that returns the image  with path
  * @param size {string}
@@ -21,7 +17,6 @@ export function create(html) {
 
 export function addImage(image) {
     const imagePath = ` <img src ="./img/products/${image}.jpg">`;
-    //console.log(image);
     return imagePath;
 }
 
@@ -46,11 +41,11 @@ export function addSize(size, stock) {
 
 /**
  * Function that returns the amount of available products to add
- * @param stock {Number}
+ * @param stock {Number} - The number of available products
+ * @param selectedAmount {Number} - The selected quantity of the product
  */
 export function addAmount(stock, selectedAmount) {
     let amountTempl = 0;
-    //console.log(stock, selectedAmount, 'selected amount');
     // Return the options template based on available products
     function option() {
         let optTemplate = '';

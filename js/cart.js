@@ -16,14 +16,15 @@ let vat = 1.19;
  * @param itemObj {obj}
  */
 
-// Define the die addToCart-Funktion
+// Define the die addToCart-Funktion that inits the cart
 export function addToCart(itemObj) {
     const existingProductIndex = cartObj.productArr.findIndex(
         (product) =>
             product.itemId === itemObj.itemId &&
             product.itemSize === itemObj.itemSize
     );
-
+    
+    // Push Product based on stock
     if (existingProductIndex !== -1) {
         const existingProduct = cartObj.productArr[existingProductIndex];
         const newAmount =
@@ -109,7 +110,7 @@ function createCart(cart) {
 }
 
 /**
- * Function that checks if Product is already in cart and only increases the quantity
+ * Function for cart that checks if Product is already in cart and only increases the quantity
  * 
  */
 
@@ -120,14 +121,12 @@ function selectAmount(e) {
         parseInt(select.parentNode.getAttribute('data-previous-value')) ||
         parseInt(select.dataset.previousValue);
 
+    // Picking up ID that was set on creation
     const previousId = select.parentNode.getAttribute('data-id');
 
     if (selectedValue > previousValue) {
-        // Wert wurde erhöht
+        // Amount has increased
         const difference = selectedValue - previousValue;
-        console.log(`Wert um ${difference} erhöht`);
-        console.dir(cartObj);
-        //cartObj.productArr[previousId] += difference;
 
         cartObj.productArr.forEach((value) => {
             if (value.itemId == previousId) {
@@ -137,14 +136,11 @@ function selectAmount(e) {
             }
         });
 
-  
         updateAmountPrice();
 
-        // Führe die entsprechende Aktion aus
     } else if (selectedValue < previousValue) {
-        // Wert wurde verringert
+        // Amount has decreased
         const difference = previousValue - selectedValue;
-        console.log(`Wert um ${difference} verringert`);
         cartObj.totalItems -= difference;
 
         cartObj.productArr.forEach((value) => {
@@ -161,8 +157,6 @@ function selectAmount(e) {
     } else {
         // Wert wurde nicht geändert
     }
-
-    console.log(cartObj.totalItems, 'cartObj.productArr.totalItems after');
 
     // Only initially
     select.parentNode.removeAttribute('data-previous-value');
@@ -192,9 +186,14 @@ function handleDeleteItem(e) {
     );
     // Recreate updated cart
     createCart(cartObj.productArr);
+    
     // Updates the number of items in the cart; calculate the total price
-
     updateAmountPrice();
+
+    // Removes the cart summary if no product is left
+    if(cartObj.productArr.length < 1) {
+        el('.subtotal-wrapper').innerHTML = ' '
+    }
 }
 
 
@@ -231,7 +230,7 @@ function updateAmountPrice() {
 function clearCart() {
     //empty the elements
     cartObj.productArr = [];
-    cartObj.totalItems = '';
+    cartObj.totalItems = ' ';
     cartObj.totalPrice = 0;
 
     updateAmountPrice();
