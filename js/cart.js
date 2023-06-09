@@ -72,9 +72,6 @@ function createCart(cart) {
       `;
     });
 
-    // TODO: add clear-btn function (?)
-    // TODO: add buy-btn function --> JSON Object console (?)
-
     // Template for total price summary
     summaryTempl = `
         <p id='vat'>VAT: 19%</p>
@@ -109,9 +106,6 @@ function createCart(cart) {
     summaryAmountSelects.forEach((select) => {
         select.addEventListener('change', selectAmount);
     });
-
-    // console.log(cart);
-    console.log(cartObj);
 }
 
 /**
@@ -127,8 +121,6 @@ function selectAmount(e) {
         parseInt(select.dataset.previousValue);
 
     const previousId = select.parentNode.getAttribute('data-id');
-
-    console.log(cartObj.totalItems, 'cartObj.productArr.totalItems');
 
     if (selectedValue > previousValue) {
         // Wert wurde erhöht
@@ -163,14 +155,11 @@ function selectAmount(e) {
             }
         });
 
-
         updateAmountPrice();
-        console.log(cartObj);
+
         // Führe die entsprechende Aktion aus
     } else {
         // Wert wurde nicht geändert
-        console.log('Wert wurde nicht geändert');
-        // Führe keine Aktion aus
     }
 
     console.log(cartObj.totalItems, 'cartObj.productArr.totalItems after');

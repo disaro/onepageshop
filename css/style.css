@@ -205,6 +205,7 @@ button {
     margin-right: 10px;
     font-weight: bold;
     font-size: 19px;
+    white-space: nowrap;
 }
 
 .price {
@@ -234,7 +235,8 @@ button {
     border-radius: 4px;
     padding: 6px 10px;
     cursor: pointer;
-    margin-left: 9%;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .remove-btn:hover {
